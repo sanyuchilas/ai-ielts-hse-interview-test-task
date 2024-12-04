@@ -1,27 +1,11 @@
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { store, AppState } from "./store";
-import { incrementAttempts } from "./actions";
-
-const AttemptsCounter = () => {
-  const dispatch = useDispatch();
-  const attemptsCount = useSelector(
-    (state: AppState) => state.attempts.attemptsCount
-  );
-
-  return (
-    <div>
-      <p>Количество попыток: {attemptsCount}</p>
-      <button onClick={() => dispatch(incrementAttempts())}>
-        Купить попытку
-      </button>
-    </div>
-  );
-};
+import { Provider } from "react-redux"
+import { store } from "./store"
+import AttemptsCounter from "./AttemptsCounter"
 
 const App = () => (
   <Provider store={store}>
     <AttemptsCounter />
   </Provider>
-);
+)
 
-export default App;
+export default App
